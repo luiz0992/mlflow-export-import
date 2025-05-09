@@ -19,11 +19,7 @@ def get_mlflow_host_token():
     import mlflow
     uri = mlflow.tracking.get_tracking_uri()
     if uri:
-        if not uri.startswith("databricks"):
-            if not uri.startswith("http"):
-                _raise_exception(uri)
-            else:
-                return (uri, None)
+        return (uri, None)
     else:
         _raise_exception(uri)
 
